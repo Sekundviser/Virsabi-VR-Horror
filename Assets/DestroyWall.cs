@@ -8,8 +8,11 @@ public class DestroyWall : MonoBehaviour
     {
         if (other.tag == "Crowbar")
         {
+            Destroy(other.gameObject);
             Destroy(transform.parent.gameObject);
         }
+    
+    
     }
     // Start is called before the first frame update
     void Start()

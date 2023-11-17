@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.SceneManagement;
 
 public class MonsterAI : MonoBehaviour
 {
@@ -20,6 +21,11 @@ public class MonsterAI : MonoBehaviour
         if(player != null)
         {
             GetComponent<NavMeshAgent>().SetDestination(player.position);
+
+            if(GetComponent<NavMeshAgent>().remainingDistance < 0.5f)
+            {
+                SceneManager.LoadScene("DeadScene");
+            }
         }
         else if (GetComponent<NavMeshAgent>().remainingDistance < 1f)
         {
